@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #background {
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            transform: scale(1.3);
+            background: #222222;
+            overflow: hidden;
+            top: 0;
+            z-index: -1;
+        }
+
+        .square {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(#303030, #757575);
+            z-index: 2;
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: #1cd99d;
+            border-radius: 50%;
+        }
+
+        .triangle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: #f5f5f5;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+    </div>
+    <div class="container">
+        <div class="main">
+            <h1>Base Converter</h1>
+            <div id="form">
+                <input id="input" type="text" placeholder="Enter number">
+        
+                <select name="fromBase" id="fromBase">
+                    <option value="Binary">Binary</option>
+                    <option value="Octal">Octal</option>
+                    <option value="Decimal">Decimal</option>
+                    <option value="Hexadecimal">Hexadecimal</option>
+                </select>
+        
+                <select name="toBase" id="toBase">
+                    <option value="Binary">Binary</option>
+                    <option value="Octal">Octal</option>
+                    <option value="Decimal">Decimal</option>
+                    <option value="Hexadecimal">Hexadecimal</option>
+                </select>
+        
+                <button id="Convert">Convert</button>
+            </div>
+        
+            <div id="output"></div>
+
+            <div id="explaination"></div>
+        </div>
+    </div>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
+    <script>
+        function randomValues() {
+            anime({
+                targets: '.square, .circle, .triangle',
+                translateX: function () {
+                    return anime.random(-500, 500);
+                },
+                translateY: function () {
+                    return anime.random(-300, 300);
+                },
+                rotate: function () {
+                    return anime.random(0, 360);
+                },
+                scale: function () {
+                    return anime.random(.2, 2);
+                },
+                duration: 1000,
+                easing: 'easeInOutQuad',
+                complete: randomValues,
+            });
+        }
+
+        randomValues();
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
