@@ -4,7 +4,7 @@ let evaluateBase = () => {
     let base1 = fromBase.value;
     let base2 = toBase.value;
     let returnArray = [];
-    
+
     if(base1 == 'Binary'){
         returnArray.push(2);
     }else if(base1 == 'Octal'){
@@ -29,8 +29,15 @@ let evaluateBase = () => {
 let decimalToOtherBase = (decimalNumber, base) => {
     let otherBaseString = [];
     while(Math.floor(decimalNumber) > 0){
-        otherBaseString.unshift(`${Math.floor(decimalNumber%base)}`);
-        decimalNumber = decimalNumber / base; 
+        let digitString = `${Math.floor(decimalNumber%base)}`;
+        console.log("initial digit string : ", digitString);
+        if(base == 16 && digitString >= 10){
+          let letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+          digitString = letters[Number.parseInt(digitString) - 10];
+        }
+        console.log(digitString);
+        otherBaseString.unshift(digitString);
+        decimalNumber = decimalNumber / base;
     }
     let s = otherBaseString.join("");
     console.log(s);
