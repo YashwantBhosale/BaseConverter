@@ -122,15 +122,23 @@ const explaination = document.getElementById('explaination');
 let validateInput = (input, base) => {
     if(base == 16)
         return true;
+
     let digits = [];
     let inputArr = Array.from(input);
+
+    if(inputArr[0] == '.')
+        return false;
     for(let i=0; i < 10; i++){
         digits.push(`${i}`);
     }
     digits.push('A', 'B', 'C', 'D', 'E', 'F');
-    for(let j = base; j < digits.length; j++){
-        if(inputArr.includes(digits[j]))
+    let validation = digits.splice(0, base);
+    console.log("validation : ", validation);
+    for(let j = 0; j < inputArr.length; j++){
+        if(!validation.includes(inputArr[j]) && inputArr[j]!='.'){
+            console.log('validation failed because : ', inputArr[j]);
             return false;
+        }
     } 
     return true;
 }
