@@ -12,14 +12,15 @@ h1{
 
 .container{
     height: 100vh;
-    width: 100vw;
+    width: 97vw;
     display: flex;
-    align-items: center;
+    padding: 50px 0;
+    /* align-items: center; */
     justify-content: center;
 }
 
 .main{
-    width: 60vw;
+    width: 85vw;
     height: fit-content;
     padding: 15px;
     border-radius: 10px;
@@ -66,8 +67,9 @@ select option{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.4rem;
     color: white;
-    border-radius: 14px;
+    border-radius: 14px 14px 0 0;
 }
 
 #explaination{
@@ -76,14 +78,50 @@ select option{
     background-color: #f2eee824;
     margin: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
-    border-radius: 14px;
+    overflow: scroll;
+    border-radius: 0 0 14px 14px;
 }
 
 #Convert:hover{
     cursor: pointer;
     background-color: white;
     color: black;
+}
+
+.explainationTable{
+    border: 1px solid white;
+    border-collapse: collapse;
+    width: 70%;
+    margin: 50px 0;
+}
+
+.explainationTable tr td{
+    border: 1px solid white;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-align: center;
+    width: 50px;
+}
+
+.explainationTable tr td span{
+    text-align: center;
+}
+#explaination p{
+    margin: 8px;
+    font-size: 1.4rem;
+    padding: 10px;
+    /* width: 90%; */
+    text-wrap: wrap;
+}
+#explaination p span{
+    margin: 5px;
+    text-align: center;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
