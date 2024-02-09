@@ -266,6 +266,9 @@ resetBtn.addEventListener('click', () => {
 })
 
 convertBtn.addEventListener("click", () => {
+    if (input.value.trim() == "") {
+        alert('invalid input!'); s
+    }
     if (document.getElementById('explaination')) {
         document.getElementById('explaination').innerHTML = ``;
     }
@@ -281,26 +284,30 @@ convertBtn.addEventListener("click", () => {
         } else {
             outputNumber = decimalToOtherBase(otherBaseToDecimal(numberString, bases[0]), bases[1]);
         }
-        output.innerHTML = `${outputNumber}`;
-        if (bases[0] == 16 || bases[1] == 16) {
-            document.getElementById('explaination').innerHTML = '<p>Oops! Explaination Not available</p>';
-        }
-        else if (bases[0] == 10) {
+        if (isNaN(outputNumber)) {
+            alert('Opps! something went wrong.. Please check your input!')
+        } else {
 
-        }
-
-        else if (bases[1] == 8 && bases[0] != 10) {
-            explain(numberString, 10, bases[0]);
-            explain(`${otherBaseToDecimal(numberString, bases[0])}`, bases[1], 10);
-        }
-        else if (bases[0] == 8) {
-            explain(numberString, 10, bases[0]);
-            if (bases[1] != 10) {
+            output.innerHTML = `${outputNumber}`;
+            if (bases[0] == 16 || bases[1] == 16) {
+                document.getElementById('explaination').innerHTML = '<p>Oops! Explaination Not available</p>';
+            }
+            else if (bases[1] == 8 && bases[0] != 10) {
+                explain(numberString, 10, bases[0]);
                 explain(`${otherBaseToDecimal(numberString, bases[0])}`, bases[1], 10);
             }
-        }
-        else if (bases[0] != 16 && bases[0] != 16) {
-            explain(numberString, bases[1], bases[0]);
+            else if (bases[0] == 8) {
+                explain(numberString, 10, bases[0]);
+                if (bases[1] != 10) {
+                    explain(`${otherBaseToDecimal(numberString, bases[0])}`, bases[1], 10);
+                }
+            }
+            else if (bases[0] != 16 && bases[0] != 16) {
+                explain(numberString, bases[1], bases[0]);
+            }
+
+
+
         }
     } else {
         alert('Please enter valid number...');

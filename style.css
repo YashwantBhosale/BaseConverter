@@ -65,12 +65,16 @@ select option{
     background-color: #f2eee824;
     margin: auto;
     display: flex;
+    /* padding: 10px; */
     align-items: center;
     justify-content: center;
+    word-wrap: break-word;
     font-size: 1.4rem;
     color: white;
     border-radius: 14px 14px 0 0;
 }
+
+
 
 #explaination{
     width: 90%;
@@ -116,6 +120,7 @@ select option{
     padding: 10px;
     /* width: 90%; */
     text-wrap: wrap;
+    overflow: scroll;
 }
 #explaination p span{
     margin: 5px;
@@ -165,15 +170,30 @@ a{
 #buttons > button{
     margin: 10px;
     padding: 15px;
-    flex: 1;
+    /* flex: 1; */
     background-color: transparent;
     border: 2px solid white;
     border-radius: 7px;
 }
-
-
+#Convert{
+    flex: 2;
+}
+#swap{
+    flex: 1;
+}
+#reset{
+    flex: 1;
+}
 @media (max-width: 800px){
     .main{
         width: 80vw;
+    }
+
+    #explaination p{
+        font-size: 1.1rem;
+    }
+
+    #explainationTable{
+        font-size: 1.1rem;
     }
 }
