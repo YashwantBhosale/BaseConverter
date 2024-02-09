@@ -12,7 +12,7 @@ h1{
 
 .container{
     height: 100vh;
-    width: 97vw;
+    width: 100vw;
     display: flex;
     padding: 50px 0;
     /* align-items: center; */
@@ -20,7 +20,7 @@ h1{
 }
 
 .main{
-    width: 85vw;
+    width: 50vw;
     height: fit-content;
     padding: 15px;
     border-radius: 10px;
@@ -86,7 +86,7 @@ select option{
     border-radius: 0 0 14px 14px;
 }
 
-#Convert:hover{
+#buttons > button:hover{
     cursor: pointer;
     background-color: white;
     color: black;
@@ -124,4 +124,56 @@ select option{
 
 ::-webkit-scrollbar{
     display: none;
+}
+
+.github-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 35px;
+}
+
+.github-details img{
+    height: 30px;
+    width: 30px;
+}
+
+.github-details span{
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+a{
+    text-decoration: none;
+}
+
+.error-toast{
+    width: 45%;
+    height: 35%;
+    background-color: white;
+}
+#buttons{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+#buttons > button{
+    margin: 10px;
+    padding: 15px;
+    flex: 1;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 7px;
+}
+
+
+@media (max-width: 800px){
+    .main{
+        width: 80vw;
+    }
 }
