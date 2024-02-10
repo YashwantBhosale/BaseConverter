@@ -169,7 +169,7 @@ const explain = (inputString, base1, base2) => {
         let cell1 = newRow.insertCell();
         cell1.innerText = `${intPart}`;
         let cell3 = newRow.insertCell();
-        cell3.innerText = `Remainder`;
+        cell3.innerText = ``;
         let temp = intPart;
         intPart = Math.floor(intPart / base1);
         while (temp > 0) {
