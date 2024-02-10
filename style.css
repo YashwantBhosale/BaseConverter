@@ -176,7 +176,7 @@ a{
     border-radius: 7px;
 }
 #Convert{
-    flex: 2;
+    width: 100%;
 }
 #swap{
     flex: 1;
