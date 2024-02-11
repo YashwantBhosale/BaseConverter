@@ -288,7 +288,14 @@ convertBtn.addEventListener("click", () => {
     let bases = evaluateBase();
     console.log(bases);
 
-
+    if (bases[0] === bases[1]) {
+        document.querySelector('#error-toast span').innerHTML = "Invalid conversion! Conversion to same base..";
+        errorToast.style.display = 'block';
+        setTimeout(() => {
+            errorToast.style.display = 'none';
+        }, 2000);
+        return;
+    }
     let numberString = input.value;
     if (validateInput(numberString, bases[0])) {
         let outputNumber = 0;
@@ -310,12 +317,12 @@ convertBtn.addEventListener("click", () => {
                 output.style.justifyContent = "start";
                 output.style.overflow = "scroll";
             }
-            if(bases[0] === bases[1]){
+            if (bases[0] === bases[1]) {
                 document.querySelector('#error-toast span').innerHTML = "Invalid conversion! Conversion to same base..";
-            errorToast.style.display = 'block';
-            setTimeout(() => {
-                errorToast.style.display = 'none';
-            }, 2000);
+                errorToast.style.display = 'block';
+                setTimeout(() => {
+                    errorToast.style.display = 'none';
+                }, 2000);
             }
             else if (bases[0] == 16 || bases[1] == 16) {
                 document.getElementById('explaination').innerHTML = '<p>Oops! Explaination Not available</p>';
