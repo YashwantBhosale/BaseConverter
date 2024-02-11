@@ -305,7 +305,7 @@ convertBtn.addEventListener("click", () => {
             }, 2000);
         } else {
 
-            output.innerHTML = `  ${outputNumber}`;
+            output.innerHTML = `${outputNumber}`;
             if (output.offsetWidth < output.scrollWidth) {
                 output.style.justifyContent = "start";
                 output.style.overflow = "scroll";
