@@ -132,6 +132,7 @@ const convertBtn = document.getElementById('Convert');
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 const explaination = document.getElementById('explaination');
+const errorToast = document.getElementById('error-toast');
 
 let validateInput = (input, base) => {
     if (base == 16)
@@ -255,6 +256,12 @@ swapBtn.addEventListener("click", () => {
     let temp = fromBase.value;
     fromBase.value = toBase.value;
     toBase.value = temp;
+    if (output.innerHTML) {
+        let temp = input.value;
+        input.value = output.innerHTML;
+        output.innerHTML = `${temp}`;
+        explaination.innerHTML = ``;
+    }
 });
 
 const resetBtn = document.getElementById('reset');
@@ -263,11 +270,17 @@ resetBtn.addEventListener('click', () => {
     input.value = '';
     fromBase.value = 'Binary';
     toBase.value = 'Binary';
+    output.innerHTML = ``;
+    explaination.innerHTML = ``;
 })
 
 convertBtn.addEventListener("click", () => {
     if (input.value.trim() == "") {
-        alert('invalid input!'); s
+        document.querySelector('#error-toast span').innerHTML = "invalid input!";
+        errorToast.style.display = 'block';
+        setTimeout(() => {
+            errorToast.style.display = 'none';
+        }, 2000);
     }
     if (document.getElementById('explaination')) {
         document.getElementById('explaination').innerHTML = ``;
@@ -285,10 +298,18 @@ convertBtn.addEventListener("click", () => {
             outputNumber = decimalToOtherBase(otherBaseToDecimal(numberString, bases[0]), bases[1]);
         }
         if (isNaN(outputNumber)) {
-            alert('Opps! something went wrong.. Please check your input!')
+            document.querySelector('#error-toast span').innerHTML = "Opps! something went wrong.. Please check your input!";
+            errorToast.style.display = 'block';
+            setTimeout(() => {
+                errorToast.style.display = 'none';
+            }, 2000);
         } else {
 
-            output.innerHTML = `${outputNumber}`;
+            output.innerHTML = `  ${outputNumber}`;
+            if (output.offsetWidth < output.scrollWidth) {
+                output.style.justifyContent = "start";
+                output.style.overflow = "scroll";
+            }
             if (bases[0] == 16 || bases[1] == 16) {
                 document.getElementById('explaination').innerHTML = '<p>Oops! Explaination Not available</p>';
             }
@@ -310,6 +331,10 @@ convertBtn.addEventListener("click", () => {
 
         }
     } else {
-        alert('Please enter valid number...');
+        document.querySelector('#error-toast span').innerHTML = "Please enter a valid number ..";
+        errorToast.style.display = 'block';
+        setTimeout(() => {
+            errorToast.style.display = 'none';
+        }, 2000);
     }
 })
