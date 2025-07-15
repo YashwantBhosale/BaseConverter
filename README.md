@@ -1,155 +1,215 @@
 # BaseConverter
 # Overview
 
-This project is a base conversion utility that allows users to convert numbers between different numerical bases, including Binary, Octal, Decimal, and Hexadecimal. The application also provides detailed explanations of the conversion process for educational purposes. It is designed for anyone who needs to understand and perform base conversions, such as students learning about number systems or developers working on related projects.
+This CSS file styles a web application interface, focusing on layout, typography, and element responsiveness. It aims to create a modern, user-friendly experience using a blend of flexbox layout and various visual enhancements.
 
-# Development Setup
+## Key Features
+- **Global Styles**: Resets margins and paddings across all elements and sets a consistent font family and text color.
+- **Responsive Design**: Media queries ensure the layout adapts to various screen sizes, enhancing usability on mobile devices.
+- **User Interaction**: Styled buttons with hover effects and toast notifications provide feedback on user actions.
 
-This section will be included if deployment or environment setup files are available. Based on the provided code, no specific deployment files (like a Dockerfile or environment configurations) are present. Instructions are therefore not included.
+# Style Documentation
 
-# Function/Class Documentation
+## Global Styles
 
-## evaluateBase
-
-- **Purpose:** Evaluates the selected bases from the user interface and returns their corresponding numeric values.
-- **Parameters:** None.
-- **Return Type:** `Array<number>` - An array containing two numeric values representing the bases selected by the user for conversion.
-- **Inline Comments:**
-    - Uses the `fromBase` and `toBase` HTML elements to determine the selected bases. Assumes valid inputs.
-- **Snippet:**
-```javascript
-let evaluateBase = () => {
-    let base1 = fromBase.value;
-    let base2 = toBase.value;
-    let returnArray = [];
-    // Logic to determine base numeric values...
-    return returnArray;
+```css
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: white;
 }
 ```
 
-## decimalToOtherBase
+- **Purpose**: Resets the margin and padding for all HTML elements to zero, providing a consistent base. It also sets a default font family and text color.
+- **Effects**: This ensures that all elements start from the same baseline, making styling more predictable.
 
-- **Purpose:** Converts a decimal number to a specified base.
-- **Parameters:**
-    - `decimalNumber` (`number`): The decimal number to convert.
-    - `base` (`number`): The base to convert the decimal number to (e.g., Binary, Octal, Hexadecimal).
-- **Return Type:** `string` - A string representation of the number in the new base.
-- **Inline Comments:**
-    - Handles the integer and fractional parts of the decimal number.
-    - Uses letters A-F for Hexadecimal conversion.
-- **Snippet:**
-```javascript
-let decimalToOtherBase = (decimalNumber, base) => {
-    let otherBaseString = [];
-    // Logic for conversion...
-    return returnString;
+## Headings
+
+```css
+h1 {
+    text-align: center;
+    margin: 25px;
 }
 ```
 
-## otherBaseToDecimal
+- **Purpose**: Centers the main heading and provides vertical spacing.
+- **Effects**: Enhances the visibility of the heading by making it prominent.
 
-- **Purpose:** Converts a number from another base (Binary, Octal, Hexadecimal) to decimal.
-- **Parameters:**
-    - `otherBaseString` (`string`): The string representation of the number in the original base.
-    - `base` (`number`): The base of the provided number.
-- **Return Type:** `number` - The decimal equivalent of the input number.
-- **Inline Comments:**
-    - Deals with both integer and fractional parts based on input base.
-    - Assumes valid input format.
-- **Snippet:**
-```javascript
-let otherBaseToDecimal = (otherBaseString, base) => {
-    let decimalNumber = 0;
-    // Logic for conversion...
-    return decimalNumber + fractionalDecimalPart;
+## Container
+
+```css
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    padding: 50px 0;
+    justify-content: center;
 }
 ```
 
-## validateInput
+- **Purpose**: Establishes a full view height and width flex container, centering its content both horizontally and vertically.
+- **Effects**: Creates a uniform layout that fills the viewport.
 
-- **Purpose:** Validates the input number conforming to the specified base.
-- **Parameters:**
-    - `input` (`string`): The input string representing the number.
-    - `base` (`number`): The base against which to validate the input.
-- **Return Type:** `boolean` - Returns true if the input is valid, else false.
-- **Inline Comments:**
-    - Ensures characters in the input match the valid range for the selected base.
-- **Snippet:**
-```javascript
-let validateInput = (input, base) => {
-    if (base == 16)
-        return true;
-    // Logic to validate input...
-    return true;
+## Main Content Area
+
+```css
+.main {
+    width: 50vw;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(62, 62, 62, 0.411);
+    backdrop-filter: blur(15px);
 }
 ```
 
-## explain
+- **Purpose**: Styles the primary content area to have rounded corners, padding, and a semi-transparent background with a blurring effect.
+- **Effects**: Provides a modern and appealing appearance for the main interface elements.
 
-- **Purpose:** Generates a detailed explanation of the conversion process from one base to another, displaying the steps taken.
-- **Parameters:**
-    - `inputString` (`string`): The number being converted.
-    - `base1` (`number`): The base of the input number.
-    - `base2` (`number`): The target base for conversion.
-- **Return Type:** `void` - This function generates HTML content rather than returning a value.
-- **Inline Comments:**
-    - Constructs an explanation table for both integer and fractional parts of the conversion.
-- **Snippet:**
-```javascript
-const explain = (inputString, base1, base2) => {
-    // Logic to explain the conversion process...
+## Form Styles
+
+```css
+#form {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+#form > * {
+    margin: 10px;
+    padding: 15px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 7px;
 }
 ```
 
-## Event Listeners
+- **Purpose**: Arranges form elements vertically with space between them and includes a border with rounded corners for each field.
+- **Effects**: Enhances usability through clear spacing and consistent styling for input elements.
 
-### Convert Button Event Listener
+## Select Dropdown
 
-- **Purpose:** Triggers the base conversion process when the convert button is clicked. Validates inputs, performs conversions, and displays the result or an error message.
-- **Inline Comments:**
-    - Handles various validation and output scenarios.
-- **Snippet:**
-```javascript
-convertBtn.addEventListener("click", () => {
-    // Logic to validate input and perform conversion...
-});
+```css
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+select option {
+    padding: 8px;
+    border-radius: 0;
+    color: black;
+    background-color: transparent;
+}
 ```
 
-### Swap Button Event Listener
+- **Purpose**: Customizes the appearance of select dropdowns by removing default browser styles and providing custom styling.
+- **Effects**: Ensures consistency across browsers and enhances user experience with an aesthetically pleasing dropdown.
 
-- **Purpose:** Swaps the selected fromBase and toBase input values for user convenience.
-- **Inline Comments:**
-    - Updates the input values accordingly.
-- **Snippet:**
-```javascript
-swapBtn.addEventListener("click", () => {
-    // Logic to swap base selections...
-});
+## Output and Explanation Sections
+
+```css
+#output {
+    width: 100%;
+    height: 10vh;
+    background-color: #f2eee824;
+    margin: auto;
+    display: flex;
+    padding: 19px 0;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    font-size: 1.4rem;
+    color: white;
+    border-radius: 14px 14px 0 0;
+}
+
+#explaination {
+    width: 100%;
+    height: fit-content;
+    background-color: #f2eee824;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: scroll;
+    border-radius: 0 0 14px 14px;
+}
 ```
 
-### Reset Button Event Listener
+- **Purpose**: Styles the output display and explanation section with background colors, spacing, and alignment.
+- **Effects**: Creates a visually distinct area for displaying results and explanations, improving clarity for users.
 
-- **Purpose:** Resets all fields to their default states when clicked.
-- **Inline Comments:**
-    - Clears input fields and explanation area.
-- **Snippet:**
-```javascript
-resetBtn.addEventListener('click', () => {
-    // Logic to reset the application state...
-});
+## Error Toast Notification
+
+```css
+#error-toast {
+    position: fixed;
+    width: 50vw;
+    margin-top: 25px;
+    z-index: 99;
+    background-color: rgb(175, 47, 47);
+    color: white;
+    display: none;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid white;
+    padding: 25px;
+    justify-content: center;
+    animation-name: slideDown;
+    animation-duration: 0.2s;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
 ```
 
-# Dependencies
+- **Purpose**: Styles a fixed-position error notification toast that slides down into view.
+- **Effects**: Provides user feedback for errors in a visually distinct and prominent manner.
 
-- No explicit dependencies were provided in the code snippet, but the following are inferred:
-    - **DOM Manipulation:** The script assumes a DOM environment to interact with via `document.getElementById()`.
-    - **Event Handling:** Utilizes native JavaScript event listeners for user interaction.
+## Media Queries
+
+```css
+@media (max-width: 800px) {
+    .main {
+        width: 80vw;
+    }
+    #error-toast {
+        width: 70vw;
+    }
+    #output {
+        font-size: 1rem;
+    }
+    #explaination p {
+        font-size: 1.1rem;
+    }
+
+    #explainationTable {
+        font-size: 1.1rem;
+    }
+}
+```
+
+- **Purpose**: Adjusts styles for screens smaller than 800 pixels in width, enhancing mobile usability.
+- **Effects**: Ensures elements are appropriately sized and readable on smaller devices.
 
 # Notes
 
-- This documentation assumes the input elements are correctly defined in the HTML structure, particularly the IDs associated with each user interface element referenced in the JavaScript code.
-- The implementation assumes that there are no additional error handling or edge cases that might affect input beyond what is written in `validateInput`.
-- It also assumes that the use of console logs for debug information is intended for development purposes and not a part of the final product output.
+- This CSS file facilitates the styling of a responsive web application interface, focusing on modern user experience principles through structured layout and visual feedback mechanisms.
+- There is no explicit mention of dependencies or external frameworks; it appears to function independently based on standard CSS capabilities.
 ## 🤝 Contributing
 
 We welcome contributions from the community! If you'd like to help improve this project, follow the steps below to get started:
